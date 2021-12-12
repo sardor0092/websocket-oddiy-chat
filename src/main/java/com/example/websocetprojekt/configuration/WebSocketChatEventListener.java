@@ -18,7 +18,7 @@ public class WebSocketChatEventListener {
     public void handleWebSocketConnectListener(SessionConnectedEvent event) {
         System.out.println("Received a new web socket connection");
     }
-
+git
     @EventListener
     public void handleWebSocketDisconnectListener(SessionDisconnectEvent event) {
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
@@ -29,7 +29,6 @@ public class WebSocketChatEventListener {
             WebSocketChatMessage chatMessage = new WebSocketChatMessage();
             chatMessage.setType("Leave");
             chatMessage.setSender(username);
-
             messagingTemplate.convertAndSend("/topic/public", chatMessage);
         }
     }
